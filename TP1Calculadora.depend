@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1535936538 source:c:\users\usuario\desktop\utn\apuntes\programacioni\proyectosprogramacioni\tp1calculadora\main.c
+	<stdio.h>
+	<stdlib.h>
+	"calc.h"
+
+1535935901 source:c:\users\usuario\desktop\utn\apuntes\programacioni\proyectosprogramacioni\tp1calculadora\calc.c
+
+1535936518 c:\users\usuario\desktop\utn\apuntes\programacioni\proyectosprogramacioni\tp1calculadora\calc.h
+
