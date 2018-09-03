@@ -34,46 +34,32 @@ int calc_getEntero(float* pNumeroIngresado, int reintentos, char* mensaje, char*
 
 int calc_getDecimal(float* pDecimal, int reintentos, char* mensaje, char* mensajeError)
 {
-    //float auxiliarDecimal;
+
     int retorno=-1;
+    int ingreso;
+    float auxiliarDecimal;
 
-    /*for(;reintentos>0;reintentos--)
+    printf(mensaje);
+
+    for(;reintentos>0;reintentos--)
     {
-        printf(mensaje);
+        printf("");
+    }
 
-        if(getFloat(&auxiliarDecimal)==0)
-        {
 
-            if(auxiliarDecimal>minimo && auxiliarDecimal<maximo)
-            {
-                *pDecimal=auxiliarDecimal;
-                retorno=0;
-                break;
-            }
-            else
-            {
-                printf(mensajeError);
-            }
-        }
-        else
-        {
-            printf(mensajeError);
-            __fpurge(stdin);
-        }
-    }*/
     return retorno;
 
 }
 
-/*static int getFloat(float* pResultado)
+static int getFloat(float* pResultado)
 {
     int retorno=-1;
 
     if(scanf("%f", pResultado)==1)
     {
-        retorno=0; //todoOk
+        retorno=0;
     }
 
     return retorno;
 }
-*/
+
