@@ -1,5 +1,6 @@
-#ifndef CALC_H_INCLUDED
-#define CALC_H_INCLUDED
+#ifndef FUNCIONESCALCULADORA_H_INCLUDED
+#define FUNCIONESCALCULADORA_H_INCLUDED
+
 /**
     calc_mostrarMenu: recibe dos valores decimales, dos banderas, y un puntero, finalmente muestra el menu analizando los parametros
     @param valorIngresadoUno: primer valor que ingresa el usuario
@@ -61,5 +62,4 @@ int calc_getFactorial(float numero, int unsigned long* pResultado);
 */
 int calc_getDecimal(float* pDecimal, int reintentos, char* mensaje, char* mensajeError);
 
-#endif // CALC_H_INCLUDED
-
+#endif // FUNCIONESCALCULADORA_H_INCLUDED
