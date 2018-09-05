@@ -70,6 +70,7 @@ int main()
                 factorialAOk=calc_getFactorial(valorIngresadoUno,&resultadoFactorialA);
                 factorialBOk=calc_getFactorial(valorIngresadoDos,&resultadoFactorialB);
                 banderaCalculo=1;
+                printf("Calculos realizados exitosamente!\n");
                 break;
 
             case 4:

@@ -1,34 +1,44 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+/**
+    getFloat: recibe puntero, para almacenar un valor que se pide al cliente en esta misma funcion
+    @return: ok: 0 , error: -1
+*/
 int getFloat(float* pResultado);
+
+/**
+    esEntero: recibe un decimal y determina si es o no entero.
+    @param NumeroIngresado: valor a determinar si es entero o no
+    @return: 0 Es entero, -1 No es entero.
+*/
 int esEntero(float NumeroIngresado);
 
-int calc_getSuma(float numeroUno, float numeroDos, float* resultado)
+int calc_getSuma(float numeroUno, float numeroDos, float* pResultado)
 {
     int retorno=0;
     float auxSuma;
     auxSuma=numeroUno+numeroDos;
-    *resultado=auxSuma;
+    *pResultado=auxSuma;
     return retorno;
 }
-int calc_getResta(float numeroUno, float numeroDos, float* resultado)
+int calc_getResta(float numeroUno, float numeroDos, float* pResultado)
 {
     int retorno=0;
     float auxResta;
     auxResta=numeroUno-numeroDos;
-    *resultado=auxResta;
+    *pResultado=auxResta;
     return retorno;
 }
-int calc_getMultiplicacion(float numeroUno, float numeroDos, float* resultado)
+int calc_getMultiplicacion(float numeroUno, float numeroDos, float* pResultado)
 {
     int retorno=0;
     float auxMultiplicacion;
     auxMultiplicacion=numeroUno*numeroDos;
-    *resultado=auxMultiplicacion;
+    *pResultado=auxMultiplicacion;
     return retorno;
 }
-int calc_getDivision(float numeroUno, float numeroDos, float* resultado)
+int calc_getDivision(float numeroUno, float numeroDos, float* pResultado)
 {
     int retorno=-1;
     float auxDivision=0;
@@ -36,13 +46,13 @@ int calc_getDivision(float numeroUno, float numeroDos, float* resultado)
     if(numeroDos!=0)
     {
         auxDivision=numeroUno/numeroDos;
-        *resultado=auxDivision;
+        *pResultado=auxDivision;
         retorno=0;
     }
     return retorno;
 }
 
-int calc_getFactorial(float numero, int unsigned long* resultado)
+int calc_getFactorial(float numero, int unsigned long* pResultado)
 {
     int retorno=-1;
     int unsigned long auxResultado=numero;
@@ -69,7 +79,7 @@ int calc_getFactorial(float numero, int unsigned long* resultado)
             auxResultado=0;
             retorno=-2;
         }
-        *resultado=auxResultado;
+        *pResultado=auxResultado;
     }
 
     return retorno;
@@ -142,7 +152,7 @@ int getFloat(float* pResultado)
     return retorno;
 }
 
-void calc_mostrarMenu(float valorIngresadoUno, float valorIngresadoDos, int ingresoA, int ingresoB, int* respuesta)
+void calc_mostrarMenu(float valorIngresadoUno, float valorIngresadoDos, int ingresoA, int ingresoB, int* pRespuesta)
 {
     int auxRespuesta=0;
 
@@ -170,18 +180,14 @@ void calc_mostrarMenu(float valorIngresadoUno, float valorIngresadoDos, int ingr
 
     if(scanf("%d", &auxRespuesta)!=1)
     {
-        *respuesta=0;
+        *pRespuesta=0;
         fflush(stdin);
     }
     else
     {
-        *respuesta=auxRespuesta;
+        *pRespuesta=auxRespuesta;
     }
 
     system("cls");
-
-
-
-
-
 }
+
