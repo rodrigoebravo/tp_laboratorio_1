@@ -1,0 +1,63 @@
+# depslib dependency file v1.0
+1538544093 source:c:\users\usuario\desktop\utn\apuntes\programacioni\proyectosprogramacioni\tp2\tp2\employee.c
+	"Employee.h"
+
+1538545251 source:c:\users\usuario\desktop\utn\apuntes\programacioni\proyectosprogramacioni\tp2\tp2\main.c
+	"Employee.h"
+	"utn.h"
+
+1538544093 c:\users\usuario\desktop\utn\apuntes\programacioni\proyectosprogramacioni\tp2\tp2\employee.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1538534496 c:\users\usuario\desktop\utn\apuntes\programacioni\proyectosprogramacioni\tp2\tp2\utn.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1538534496 source:c:\users\usuario\desktop\utn\apuntes\programacioni\proyectosprogramacioni\tp2\tp2\utn.c
+	"utn.h"
+
+1538588628 source:d:\users\rbravo\escritorio\tp2\employee.c
+	"Employee.h"
+
+1538588653 d:\users\rbravo\escritorio\tp2\employee.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"utn.h"
+
+1538588343 source:d:\users\rbravo\escritorio\tp2\main.c
+	"Employee.h"
+	"utn.h"
+
+1538583919 d:\users\rbravo\escritorio\tp2\utn.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1538583919 source:d:\users\rbravo\escritorio\tp2\utn.c
+	"utn.h"
+
+1538588628 source:d:\users\rbravo\escritorio\tp2\tp2\employee.c
+	"Employee.h"
+
+1538588653 d:\users\rbravo\escritorio\tp2\tp2\employee.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"utn.h"
+
+1538583919 d:\users\rbravo\escritorio\tp2\tp2\utn.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1538589367 source:d:\users\rbravo\escritorio\tp2\tp2\main.c
+	"Employee.h"
+	"utn.h"
+
+1538583919 source:d:\users\rbravo\escritorio\tp2\tp2\utn.c
+	"utn.h"
+
