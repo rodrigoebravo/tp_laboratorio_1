@@ -1,4 +1,6 @@
-#include "Employee.h"
+#include "ArrayEmployees.h"
+
+
 static int emp_getIndexVacio(Employee* emp, int len);
 
 
@@ -25,7 +27,7 @@ int addEmployee(Employee* list, int len, int id, char name[], char lastName[], f
     int i;
     if(list!=NULL && len>0 && name!=NULL && lastName!=NULL && salary>0)
     {
-        for(i=0; i<len;i++)
+        for(i=0; i<len; i++)
         {
             if(list[i].id==id && list[i].isEmpty==FALSE)
             {
@@ -176,11 +178,11 @@ int printEmployees(Employee* list, int length)
             if(list[i].isEmpty==FALSE)
             {
                 printf("ID: %d  NAME: %s  LASTNAME: %s  SALARY: %.0f  SECTOR: %d\n",
-                list[i].id,
-                list[i].name,
-                list[i].lastName,
-                list[i].salary,
-                list[i].sector);
+                       list[i].id,
+                       list[i].name,
+                       list[i].lastName,
+                       list[i].salary,
+                       list[i].sector);
             }
         }
     }
@@ -227,6 +229,7 @@ int bajaEmpleados(Employee* em, int len)
             {
                 em[indexBaja].isEmpty=TRUE;
                 retorno=TODOOK;
+                limpiarScreen();
             }
         }
     }
@@ -258,6 +261,7 @@ int modificarEmpleados(Employee* em, int len)
                         if(utn_getCadena(emAux[0].name, 51,3,"Ingrese nuevo nombre:\n", "Error en nombre ingresado\n")==TODOOK)
                         {
                             strncpy(em[indexModificar].name, emAux[0].name, strlen(emAux[0].name));
+                            limpiarScreen();
                             printf("Registro modificado correctamente!\n");
                             retorno=TODOOK;
                         }
@@ -266,6 +270,7 @@ int modificarEmpleados(Employee* em, int len)
                         if(utn_getCadena(emAux[0].lastName, 51,3,"Ingrese nuevo apellido:\n", "Error en apellido ingresado\n")==TODOOK)
                         {
                             strncpy(em[indexModificar].lastName, emAux[0].lastName, strlen(emAux[0].lastName));
+                            limpiarScreen();
                             printf("Registro modificado correctamente!\n");
                             retorno=TODOOK;
                         }
@@ -274,6 +279,7 @@ int modificarEmpleados(Employee* em, int len)
                         if(utn_getDecimal(&emAux[0].salary, 3, 100000,0,"Ingrese nuevo salario\n","Error en salario ingresado\n")==TODOOK)
                         {
                             em[indexModificar].salary=emAux[0].salary;
+                            limpiarScreen();
                             printf("Registro modificado correctamente!\n");
                             retorno=TODOOK;
                         }
@@ -282,6 +288,7 @@ int modificarEmpleados(Employee* em, int len)
                         if(utn_getEntero(&emAux[0].sector, 3, 1000, 0, "Ingrese nuevo sector\n", "Error en sector ingresado\n")==TODOOK)
                         {
                             em[indexModificar].sector=emAux[0].sector;
+                            limpiarScreen();
                             printf("Registro modificado correctamente!\n");
                             retorno=TODOOK;
                         }

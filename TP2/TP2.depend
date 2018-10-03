@@ -61,3 +61,30 @@
 1538583919 source:d:\users\rbravo\escritorio\tp2\tp2\utn.c
 	"utn.h"
 
+1538600079 source:d:\users\rbravo\escritorio\tp2\tp_laboratorio_1\tp2\arrayemployees.c
+	"ArrayEmployees.h"
+
+1538595310 d:\users\rbravo\escritorio\tp2\tp_laboratorio_1\tp2\employee.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"utn.h"
+
+1538583919 d:\users\rbravo\escritorio\tp2\tp_laboratorio_1\tp2\utn.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1538600116 source:d:\users\rbravo\escritorio\tp2\tp_laboratorio_1\tp2\main.c
+	"ArrayEmployees.h"
+	"utn.h"
+
+1538598983 d:\users\rbravo\escritorio\tp2\tp_laboratorio_1\tp2\arrayemployees.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"utn.h"
+
+1538583919 source:d:\users\rbravo\escritorio\tp2\tp_laboratorio_1\tp2\utn.c
+	"utn.h"
+

@@ -1,17 +1,45 @@
-#include "Employee.h"
+#include "ArrayEmployees.h"
 #include "utn.h"
 #define CANTIDAD_EMPLEADOS 1000
-void llenarEmpleadosTest(Employee* empleados);
+/** \brief Funcion de test para agregar empleados a la lista inicial, para usarla en este caso se debe descomentar la linea numero:41 de la funcion Main
+ * \param list Employee* Pointer to array of employees
+ * \param int hayEmpleados usado como booleano, pudiendo ser TRUE o FALSE, esta funcion lo convierte en TRUE para seguir probando el resto de las funcionalidades del menu
+ */
+void llenarEmpleadosTest(Employee* empleados, int* hayEmpleados);
+/** \brief Funcion para imprimir el menu y recibir la opcion ingresada por el usuario
+ * \param len int Opcion ingresada
+ * \return int Return (-1) if Error [Invalid length or NULL pointer] - (0) if Ok
+ *
+ */
 int printMenu(int* opcionIngresada);
+/** \brief Se imprimen los empleados por orden apellido y sector
+ * \param list Employee* Pointer to array of employees
+ * \param len int Array length
+ * \return int Return (-1) if Error [Invalid length or NULL pointer] - (0) if Ok
+ *
+ */
 int printEmpleadosOrderApellidoSector(Employee* em, int len);
+/** \brief Funcion que calcula e imprime del array de empleados el promedio de los salarios
+ * \param list Employee* Pointer to array of employees
+ * \param len int Array length
+ */
 void printTotalPromedioSalarios(Employee* em, int len);
+/** \brief Funcion que imprime las opciones de informes y permite al usuario elegir el informe a imprimir.
+ * \param list Employee* Pointer to array of employees
+ * \param len int Array length
+ * \return int Return (-1) if Error [Invalid length or NULL pointer] - (0) if Ok
+ *
+ */
 int printInformes(Employee* em, int len);
+
 int main()
 {
     int opcionIngresada;
-    int hayEmpleados;
+    int hayEmpleados=FALSE;
     Employee empleados[CANTIDAD_EMPLEADOS];
     initEmployees(empleados, CANTIDAD_EMPLEADOS);
+    //llenarEmpleadosTest(empleados, &hayEmpleados);
+
 
     do
     {
@@ -47,6 +75,10 @@ int main()
                     {
                         printf("Error al eliminar registro\n");
                     }
+                    else
+                    {
+                        printf("ID eliminado correctamente!\n");
+                    }
                 }
                 else
                 {
@@ -61,6 +93,10 @@ int main()
                         printf("No se pudo imprimir informes\n");
                     }
                 }
+                else
+                {
+                    printf("No se pueden imprimir datos, debe dar de alta antes.\n");
+                }
                 break;
             default:
                 break;
@@ -71,7 +107,7 @@ int main()
     return 0;
 }
 
-void llenarEmpleadosTest(Employee* empleados)
+void llenarEmpleadosTest(Employee* empleados, int* hayEmpleados)
 {
     addEmployee(empleados, CANTIDAD_EMPLEADOS, 1, "Rodrigo", "Bravo", 1, 10);
     addEmployee(empleados, CANTIDAD_EMPLEADOS, 2, "Rodrigo", "Bravo", 25000, 1);
@@ -88,6 +124,7 @@ void llenarEmpleadosTest(Employee* empleados)
     addEmployee(empleados, CANTIDAD_EMPLEADOS, 13, "Rodrigo", "Mer", 25000, 1);
     addEmployee(empleados, CANTIDAD_EMPLEADOS, 14, "Rodrigo", "Sor", 25000, 8);
     addEmployee(empleados, CANTIDAD_EMPLEADOS, 15, "Rodrigo", "Asdqwe", 25000, 5);
+    *hayEmpleados=TRUE;
 }
 
 int printMenu(int* opcionIngresada)

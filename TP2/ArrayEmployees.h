@@ -1,5 +1,5 @@
-#ifndef EMPLOYEE_H_INCLUDED
-#define EMPLOYEE_H_INCLUDED
+#ifndef ARRAYEMPLOYEES_H_INCLUDED
+#define ARRAYEMPLOYEES_H_INCLUDED
 
 typedef struct
 {
@@ -73,11 +73,48 @@ indicate UP or DOWN order
  *
  */
 int sortEmployees(Employee* list, int len, int order);
+
+/** \brief Imprime el array de Employee si el dato tiene el alta logica
+ *
+ * \param list Employee*
+ * \param len int
+ * \return int Return (-1) if Error [Invalid length or NULL pointer] - (0) if Ok
+ *
+ */
 int printEmployees(Employee* list, int length);
+
+/** \brief Genera ID nuevo
+ *
+ * \param list Employee*
+ * \param len int
+ * \return int Return (-1) if Error [Invalid length or NULL pointer] - (>-1) if Ok
+ *
+ */
 int generarID(void);
+
+/** \brief Pide al usuario los datos a dar de alta como empleado
+ *
+ * \param list Employee*
+ * \param len int
+ * \return int Return (-1) if Error [Invalid length or NULL pointer] - (>-1) if Ok
+ *
+ */
 int altaEmpleados(Employee* em, int len);
+/** \brief Pide al usuario los datos a modificar como empleado, solo modifica de a un campo del empleado
+ *
+ * \param list Employee*
+ * \param len int
+ * \return int Return (-1) if Error [Invalid length or NULL pointer] - (>-1) if Ok
+ *
+ */
 int modificarEmpleados(Employee* em, int len);
+/** \brief Pide al usuario el id a eliminar como empleado
+ *
+ * \param list Employee*
+ * \param len int
+ * \return int Return (-1) if Error [Invalid length or NULL pointer] - (>-1) if Ok
+ *
+ */
 int bajaEmpleados(Employee* em, int len);
 
-
-#endif // EMPLOYEE_H_INCLUDED
+#endif // ARRAYEMPLOYEES_H_INCLUDED
