@@ -357,13 +357,13 @@ int utn_getPrecio(float* decimal, int intentos, int maximo, int minimo, char* me
 
 static void limpiarBuffer(void)
 {
-    //__fpurge(stdin);
-    fflush(stdin);
+    __fpurge(stdin);
+    //fflush(stdin);
 }
 void limpiarScreen(void)
 {
-    system("cls");//windows
-    //system("clear");//linux
+    //system("cls");//windows
+    system("clear");//linux
 }
 
 int esCuit(char* cuit, int len)

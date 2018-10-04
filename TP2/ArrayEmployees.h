@@ -53,6 +53,7 @@ pointer received or employee not found]
  *
  */
 int findEmployeeById(Employee* list, int len, int id);
+
 /** \brief Remove a Employee by Id (put isEmpty Flag in 1)
  *
  * \param list Employee*
@@ -63,6 +64,7 @@ find a employee] - (0) if Ok
  *
  */
 int removeEmployee(Employee* list, int len, int id);
+
 /** \brief Sort the elements in the array of employees, the argument order
 indicate UP or DOWN order
  *
@@ -100,6 +102,7 @@ int generarID(void);
  *
  */
 int altaEmpleados(Employee* em, int len);
+
 /** \brief Pide al usuario los datos a modificar como empleado, solo modifica de a un campo del empleado
  *
  * \param list Employee*
@@ -108,6 +111,7 @@ int altaEmpleados(Employee* em, int len);
  *
  */
 int modificarEmpleados(Employee* em, int len);
+
 /** \brief Pide al usuario el id a eliminar como empleado
  *
  * \param list Employee*
@@ -116,5 +120,14 @@ int modificarEmpleados(Employee* em, int len);
  *
  */
 int bajaEmpleados(Employee* em, int len);
+
+/** \brief Funcion de test para agregar empleados a la lista inicial, para usarla en este caso se debe descomentar la linea numero:12 de la funcion Main
+ * \param list Employee* Pointer to array of employees
+ * \param int hayEmpleados usado como booleano, pudiendo ser TRUE o FALSE, esta funcion lo convierte en TRUE para seguir probando el resto de las funcionalidades del menu
+ * \param in cantEmpleados longitud del array empleados
+ */
+void llenarEmpleadosTest(Employee* empleados, int* hayEmpleados, int cantEmpleados);
+
+
 
 #endif // ARRAYEMPLOYEES_H_INCLUDED

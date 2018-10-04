@@ -88,3 +88,32 @@
 1538583919 source:d:\users\rbravo\escritorio\tp2\tp_laboratorio_1\tp2\utn.c
 	"utn.h"
 
+1538612797 source:/home/alumno/Escritorio/Bravo/TP2/tp_laboratorio_1/TP2/ArrayEmployees.c
+	"ArrayEmployees.h"
+
+1538612132 /home/alumno/Escritorio/Bravo/TP2/tp_laboratorio_1/TP2/ArrayEmployees.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"utn.h"
+
+1538614049 /home/alumno/Escritorio/Bravo/TP2/tp_laboratorio_1/TP2/utn.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<stdio_ext.h>
+
+1538612870 source:/home/alumno/Escritorio/Bravo/TP2/tp_laboratorio_1/TP2/main.c
+	"ArrayEmployees.h"
+	"utn.h"
+	"informar.h"
+
+1538603635 source:/home/alumno/Escritorio/Bravo/TP2/tp_laboratorio_1/TP2/utn.c
+	"utn.h"
+
+1538611871 source:/home/alumno/Escritorio/Bravo/TP2/tp_laboratorio_1/TP2/informar.c
+	"informar.h"
+
+1538611887 /home/alumno/Escritorio/Bravo/TP2/tp_laboratorio_1/TP2/informar.h
+	"ArrayEmployees.h"
+

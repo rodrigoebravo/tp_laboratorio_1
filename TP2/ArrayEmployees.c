@@ -2,7 +2,7 @@
 
 
 static int emp_getIndexVacio(Employee* emp, int len);
-
+static void swapEmployees(Employee* list, int i);
 
 int initEmployees(Employee* list, int len)
 {
@@ -91,7 +91,7 @@ int sortEmployees(Employee* list, int len, int order)
     int retorno=ERROR;
     int i;
     int flag=TRUE;
-    Employee aux[1];
+
 
     if(list!=NULL && len>0)
     {
@@ -107,64 +107,29 @@ int sortEmployees(Employee* list, int len, int order)
                         (order==0 && strcmp(list[i].lastName, list[i+1].lastName) < 0))
                 {
                     flag=TRUE;
-                    strncpy(aux[0].lastName, list[i].lastName,sizeof(list[i].lastName));
-                    strncpy(list[i].lastName,list[i+1].lastName,sizeof(list[i+1].lastName));
-                    strncpy(list[i+1].lastName,aux[0].lastName,sizeof(aux[0].lastName));
+                    swapEmployees(list, i);
 
-                    aux[0].id=list[i].id;
-                    list[i].id=list[i+1].id;
-                    list[i+1].id=aux[0].id;
-
-                    strncpy(aux[0].name,list[i].name,sizeof(list[i].name));
-                    strncpy(list[i].name,list[i+1].name,sizeof(list[i+1].name));
-                    strncpy(list[i+1].name,aux[0].name,sizeof(aux[0].name));
-
-                    aux[0].salary=list[i].salary;
-                    list[i].salary=list[i+1].salary;
-                    list[i+1].salary=aux[0].salary;
-
-                    aux[0].sector=list[i].sector;
-                    list[i].sector=list[i+1].sector;
-                    list[i+1].sector=aux[0].sector;
-
-                    aux[0].isEmpty=list[i].isEmpty;
-                    list[i].isEmpty=list[i+1].isEmpty;
-                    list[i+1].isEmpty=aux[0].isEmpty;
                 }
-                else if(((order==1 && list[i].sector > list[i+1].sector) || (order==0 && list[i].sector < list[i+1].sector))
-                        && strcmp(list[i].lastName, list[i+1].lastName) == 0)
+                else if(((order==1 && list[i].sector > list[i+1].sector) ||
+                         (order==0 && list[i].sector < list[i+1].sector)) &&
+                         strcmp(list[i].lastName, list[i+1].lastName) == 0)
                 {
                     flag=TRUE;
-
-                    strncpy(aux[0].lastName, list[i].lastName,sizeof(list[i].lastName));
-                    strncpy(list[i].lastName,list[i+1].lastName,sizeof(list[i+1].lastName));
-                    strncpy(list[i+1].lastName,aux[0].lastName,sizeof(aux[0].lastName));
-
-                    aux[0].id=list[i].id;
-                    list[i].id=list[i+1].id;
-                    list[i+1].id=aux[0].id;
-
-                    strncpy(aux[0].name,list[i].name,sizeof(list[i].name));
-                    strncpy(list[i].name,list[i+1].name,sizeof(list[i+1].name));
-                    strncpy(list[i+1].name,aux[0].name,sizeof(aux[0].name));
-
-                    aux[0].salary=list[i].salary;
-                    list[i].salary=list[i+1].salary;
-                    list[i+1].salary=aux[0].salary;
-
-                    aux[0].sector=list[i].sector;
-                    list[i].sector=list[i+1].sector;
-                    list[i+1].sector=aux[0].sector;
-
-                    aux[0].isEmpty=list[i].isEmpty;
-                    list[i].isEmpty=list[i+1].isEmpty;
-                    list[i+1].isEmpty=aux[0].isEmpty;
+                    swapEmployees(list, i);
                 }
             }
         }
     }
 
     return retorno;
+}
+
+static void swapEmployees(Employee* list, int i)
+{
+    Employee aux;
+    aux=list[i];
+    list[i]=list[i+1];
+    list[i+1]=aux;
 }
 
 int printEmployees(Employee* list, int length)
@@ -310,23 +275,34 @@ int altaEmpleados(Employee* em, int len)
 {
     int retorno=ERROR;
     Employee emAux[1];
-    if(em!=NULL && len>0)
-    {
-        if(utn_getCadena(emAux[0].name, 51, 3, "Ingrese nombre:\n", "Error en nombre ingresado\n")==TODOOK)
+    if(em!=NULL && len>0 &&
+        utn_getCadena(emAux[0].name, 51, 3, "Ingrese nombre:\n", "Error en nombre ingresado\n")==TODOOK &&
+        utn_getCadena(emAux[0].lastName, 51, 3, "Ingrese apellido:\n", "Error en apellido ingresado\n")==TODOOK &&
+        utn_getDecimal(&emAux[0].salary, 3, 100000, 0, "Ingrese salario:\n", "Error en salario ingresado\n")==TODOOK &&
+        utn_getEntero(&emAux[0].sector, 3, 1000, -1, "Ingrese sector:\n", "Error en sector ingresado\n")==TODOOK)
         {
-            if(utn_getCadena(emAux[0].lastName, 51, 3, "Ingrese apellido:\n", "Error en apellido ingresado\n")==TODOOK)
-            {
-                if(utn_getDecimal(&emAux[0].salary, 3, 100000, 0, "Ingrese salario:\n", "Error en salario ingresado\n")==TODOOK)
-                {
-                    if(utn_getEntero(&emAux[0].sector, 3, 1000, -1, "Ingrese sector:\n", "Error en sector ingresado\n")==TODOOK)
-                    {
-                        emAux[0].id=generarID();
-                        retorno=addEmployee(em, len, emAux[0].id, emAux[0].name, emAux[0].lastName, emAux[0].salary, emAux[0].sector);
-                    }
-                }
-            }
+            emAux[0].id=generarID();
+            retorno=addEmployee(em, len, emAux[0].id, emAux[0].name, emAux[0].lastName, emAux[0].salary, emAux[0].sector);
         }
-    }
-
     return retorno;
+}
+
+void llenarEmpleadosTest(Employee* empleados, int* hayEmpleados, int cantEmpleados)
+{
+    addEmployee(empleados, cantEmpleados, 1, "Rodrigo", "Bravo", 1, 10);
+    addEmployee(empleados, cantEmpleados, 2, "Rodrigo", "Bravo", 25000, 1);
+    addEmployee(empleados, cantEmpleados, 3, "Rodrigo", "Bravo", 12, 9);
+    addEmployee(empleados, cantEmpleados, 4, "Rodrigo", "Mar", 25000, 10);
+    addEmployee(empleados, cantEmpleados, 5, "Rodrigo", "Aaa", 25000, 1);
+    addEmployee(empleados, cantEmpleados, 6, "Rodrigo", "Car", 25000, 2);
+    addEmployee(empleados, cantEmpleados, 7, "Rodrigo", "Cor", 25000, 2);
+    addEmployee(empleados, cantEmpleados, 8, "Rodrigo", "Pir", 25000, 2);
+    addEmployee(empleados, cantEmpleados, 9, "Rodrigo", "Zor", 25000, 1);
+    addEmployee(empleados, cantEmpleados, 10, "Rodrigo", "Zur", 25000, 2);
+    addEmployee(empleados, cantEmpleados, 11, "Rodrigo", "Zar", 25000, 3);
+    addEmployee(empleados, cantEmpleados, 12, "Rodrigo", "Abo", 25000, 9);
+    addEmployee(empleados, cantEmpleados, 13, "Rodrigo", "Mer", 25000, 1);
+    addEmployee(empleados, cantEmpleados, 14, "Rodrigo", "Sor", 25000, 8);
+    addEmployee(empleados, cantEmpleados, 15, "Rodrigo", "Asdqwe", 25000, 5);
+    *hayEmpleados=TRUE;
 }
