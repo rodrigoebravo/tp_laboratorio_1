@@ -69,7 +69,6 @@ int main()
                 }
                 break;
             default:
-                printf("Bye!");
                 break;
         }
     }
