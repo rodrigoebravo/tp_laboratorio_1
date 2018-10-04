@@ -9,7 +9,7 @@ int main()
     int hayEmpleados=FALSE;
     Employee empleados[CANTIDAD_EMPLEADOS];
     initEmployees(empleados, CANTIDAD_EMPLEADOS);
-    llenarEmpleadosTest(empleados, &hayEmpleados, CANTIDAD_EMPLEADOS);
+    //llenarEmpleadosTest(empleados, &hayEmpleados, CANTIDAD_EMPLEADOS);
 
     do
     {

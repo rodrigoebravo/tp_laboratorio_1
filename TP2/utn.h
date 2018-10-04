@@ -42,5 +42,7 @@ int utn_getDecimal(float* numeroBuffer, int intentos, int maximo, int minimo, ch
 int utn_getCadena(char* cadenaBuffer, int len, int intentos, char* mensaje, char* mensajeError);
 //void limpiarNumero(char* cadena);
 //int esCuit(char* cuit, int len);
+/** \brief funcion void que permite limpiar pantalla
+ */
 void limpiarScreen(void);
 #endif // UTN_H_INCLUDED

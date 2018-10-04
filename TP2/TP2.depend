@@ -117,3 +117,31 @@
 1538611887 /home/alumno/Escritorio/Bravo/TP2/tp_laboratorio_1/TP2/informar.h
 	"ArrayEmployees.h"
 
+1538649695 source:c:\users\usuario\desktop\utn\apuntes\programacioni\proyectosprogramacioni\tp_laboratorio_1\tp2\arrayemployees.c
+	"ArrayEmployees.h"
+
+1538649695 c:\users\usuario\desktop\utn\apuntes\programacioni\proyectosprogramacioni\tp_laboratorio_1\tp2\arrayemployees.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"utn.h"
+
+1538650046 c:\users\usuario\desktop\utn\apuntes\programacioni\proyectosprogramacioni\tp_laboratorio_1\tp2\utn.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1538649695 source:c:\users\usuario\desktop\utn\apuntes\programacioni\proyectosprogramacioni\tp_laboratorio_1\tp2\informar.c
+	"informar.h"
+
+1538649695 c:\users\usuario\desktop\utn\apuntes\programacioni\proyectosprogramacioni\tp_laboratorio_1\tp2\informar.h
+	"ArrayEmployees.h"
+
+1538649695 source:c:\users\usuario\desktop\utn\apuntes\programacioni\proyectosprogramacioni\tp_laboratorio_1\tp2\main.c
+	"ArrayEmployees.h"
+	"utn.h"
+	"informar.h"
+
+1538649784 source:c:\users\usuario\desktop\utn\apuntes\programacioni\proyectosprogramacioni\tp_laboratorio_1\tp2\utn.c
+	"utn.h"
+
