@@ -1,0 +1,117 @@
+# depslib dependency file v1.0
+1533062952 source:/home/mauro/Descargas/Practica_Pair_v1.2/Linux_64/Employee.c
+
+1533063050 source:/home/mauro/Descargas/Practica_Pair_v1.2/Linux_64/main.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Employee.h"
+
+1532354323 /home/mauro/Descargas/Practica_Pair_v1.2/Linux_64/LinkedList.h
+
+1533062926 /home/mauro/Descargas/Practica_Pair_v1.2/Linux_64/Employee.h
+
+1533063080 source:/home/mauro/Descargas/Practica_Pair_v1.2/Linux_64/parser.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Employee.h"
+
+1533062952 source:/home/mauro/Descargas/TP3/Linux_64/Employee.c
+
+1533066103 source:/home/mauro/Descargas/TP3/Linux_64/main.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Employee.h"
+
+1532354323 /home/mauro/Descargas/TP3/Linux_64/LinkedList.h
+
+1533066103 /home/mauro/Descargas/TP3/Linux_64/Employee.h
+
+1533063080 source:/home/mauro/Descargas/TP3/Linux_64/parser.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Employee.h"
+
+1533145792 source:/home/mauro/Descargas/TP3-20180801T173619Z-001/TP3/Linux_64/Controller.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Employee.h"
+
+1533118898 /home/mauro/Descargas/TP3-20180801T173619Z-001/TP3/Linux_64/LinkedList.h
+
+1533118898 /home/mauro/Descargas/TP3-20180801T173619Z-001/TP3/Linux_64/Employee.h
+
+1533118898 source:/home/mauro/Descargas/TP3-20180801T173619Z-001/TP3/Linux_64/Employee.c
+
+1533145890 source:/home/mauro/Descargas/TP3-20180801T173619Z-001/TP3/Linux_64/parser.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Employee.h"
+
+1541149112 source:/home/romina/Descargas/Rodrigo/Repositorio/PracticaProgramacionI/TP3/Linux_64/Controller.c
+	"Controller.h"
+
+1541040850 /home/romina/Descargas/Rodrigo/Repositorio/PracticaProgramacionI/TP3/Linux_64/LinkedList.h
+
+1541132146 /home/romina/Descargas/Rodrigo/Repositorio/PracticaProgramacionI/TP3/Linux_64/Employee.h
+
+1541040850 /home/romina/Descargas/Rodrigo/Repositorio/PracticaProgramacionI/TP3/Linux_64/utn.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<stdio_ext.h>
+
+1541145662 /home/romina/Descargas/Rodrigo/Repositorio/PracticaProgramacionI/TP3/Linux_64/parser.h
+
+1541142625 source:/home/romina/Descargas/Rodrigo/Repositorio/PracticaProgramacionI/TP3/Linux_64/Employee.c
+	"Employee.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"utn.h"
+
+1541141600 source:/home/romina/Descargas/Rodrigo/Repositorio/PracticaProgramacionI/TP3/Linux_64/parser.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Employee.h"
+	"parser.h"
+	"utn.h"
+
+1541134053 source:/home/romina/Descargas/Rodrigo/Repositorio/PracticaProgramacionI/TP3/Linux_64/utn.c
+	"utn.h"
+
+1541147512 source:/home/romina/Descargas/Rodrigo/Repositorio/PracticaProgramacionI/TP3/Linux_64/main.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Controller.h"
+	"Employee.h"
+	"utn.h"
+
+1541148876 /home/romina/Descargas/Rodrigo/Repositorio/PracticaProgramacionI/TP3/Linux_64/Controller.h
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Employee.h"
+	"utn.h"
+	"save.h"
+	"parser.h"
+
+1541147061 /home/romina/Descargas/Rodrigo/Repositorio/PracticaProgramacionI/TP3/Linux_64/save.h
+
+1541147364 source:/home/romina/Descargas/Rodrigo/Repositorio/PracticaProgramacionI/TP3/Linux_64/save.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Employee.h"
+	"utn.h"
+	"parser.h"
+	"Controller.h"
+	"save.h"
+
