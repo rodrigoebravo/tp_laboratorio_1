@@ -63,7 +63,6 @@ int controller_addEmployee(LinkedList* pArrayListEmployee)
        utn_getCadena(sueldoAux, 1024,1024,0,3,"Ingrese sueldo\n","Error al ingresar sueldo\n")==TODOOK)
     {
         pEmpleado=Employee_newConParametros(idAux, nombreAux, horasTrabajadasAux, sueldoAux);
-        printf("-------------------------------------------PUTOO\n");
         if(pEmpleado!=NULL)
         {
             if(controller_validarEmployee(pArrayListEmployee, pEmpleado)==TODOOK)
