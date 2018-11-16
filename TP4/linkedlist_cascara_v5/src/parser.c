@@ -43,7 +43,6 @@ int parser_EmployeeFromText(FILE* pFile , LinkedList* pArrayListEmployee)
             }
         }
         printf("Archivo cargado exitosamente\n");
-
     }
     return retorno;
 }

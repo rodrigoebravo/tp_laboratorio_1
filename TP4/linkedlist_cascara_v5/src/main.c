@@ -28,12 +28,13 @@
 void printMenu(int* option);
 int main(void)
 {
-        //startTesting(1);  // ll_newLinkedList
-        //startTesting(2);  // ll_len
-        //startTesting(3);  // getNode - test_getNode
-        //startTesting(4);  // addNode - test_addNode
-        //startTesting(5);  // ll_add
-        //startTesting(6);  // ll_get
+
+        //OK//startTesting(1);  // ll_newLinkedList
+        //OK//startTesting(2);  // ll_len
+        //OK//startTesting(3);  // getNode - test_getNode
+        //OK//startTesting(4);  // addNode - test_addNode
+        //OK//startTesting(5);  // ll_add
+        //OK//startTesting(6);  // ll_get
         //startTesting(7);  // ll_set
         //startTesting(8);  // ll_remove
         //startTesting(9);  // ll_clear
@@ -46,11 +47,8 @@ int main(void)
         //startTesting(16); // ll_containsAll
         //startTesting(17); // ll_subList
         //startTesting(18); // ll_clone
-        //startTesting(19); // ll_sort
-        //strtok("hola-hola-hola", "-");
-        //si pones null en el primer parametro agarra de donde se quedo
-        //strstr("holamundoholamundoholamundo");
-        //Hacer una entidad rapidamente con el builder!!!!
+        //OK//startTesting(19); // ll_sort
+
     int option = 0;
     LinkedList* listaEmpleados = ll_newLinkedList();
     int hayDatosEnLista=FALSE;
@@ -72,35 +70,23 @@ int main(void)
             case 3:
                 limpiarScreen();
                 if(hayDatosEnLista && controller_addEmployee(listaEmpleados)==TODOOK)
-                {
                     printf("Dato ingresado correctamente");
-                }
                 else
-                {
                     printf("No hay datos para procesar\n");
-                }
                 break;
             case 4:
                 limpiarScreen();
                 if(hayDatosEnLista && controller_editEmployee(listaEmpleados)==TODOOK)
-                {
                     printf("Modificacion exitosa\n");
-                }
                 else
-                {
                     printf("No hay datos para procesar\n");
-                }
                 break;
             case 5:
                 limpiarScreen();
                 if(hayDatosEnLista && controller_removeEmployee(listaEmpleados)==TODOOK)
-                {
                     printf("Dato eliminado correctamente\n");
-                }
                 else
-                {
                     printf("No hay datos para procesar\n");
-                }
                 break;
             case 6:
                 limpiarScreen();
@@ -110,39 +96,37 @@ int main(void)
             case 7:
                 limpiarScreen();
                 if(hayDatosEnLista && controller_sortEmployee(listaEmpleados)==TODOOK)
-                {
                     printf("Ordenamiento exitoso\n");
-                }
                 else
-                {
                     printf("No fue posible ordenar\n");
-                }
                 break;
             case 8:
                 limpiarScreen();
                 if(hayDatosEnLista && controller_saveAsText("data.csv", listaEmpleados)==TODOOK)
-                {
                     printf("El archivo fue grabado exitosamente\n");
-                }
                 else
-                {
                     printf("No fue posible grabar datos\n");
-                }
 
                 break;
             case 9:
                 if(hayDatosEnLista && controller_saveAsBinary("data.b", listaEmpleados)==TODOOK)
-                {
                     printf("Creado exitosamente\n");
-                }
                 else
-                {
                     printf("No fue posible grabar datos\n");
-                }
 
                 break;
+            case 10:
+                if(hayDatosEnLista && controller_limpiarLista(listaEmpleados)==TODOOK)
+                    printf("Se vacio la lista corractamente\n");
+                else
+                    printf("No fue posible limpiar la lista");
+                break;
+            case 11:
+
+                break;
+
         }
-    }while(option != 10);
+    }while(option != 100);
     return 0;
 }
 
@@ -152,6 +136,6 @@ int main(void)
  */
 void printMenu(int* option)
 {
-    char menu[]="1. Cargar los datos de los empleados desde el archivo data.csv (modo texto).\n2. Cargar los datos de los empleados desde el archivo data.csv (modo binario).\n3. Alta de empleado\n4. Modificar datos de empleado\n5. Baja de empleado\n6. Listar empleados\n7. Ordenar empleados\n8. Guardar los datos de los empleados en el archivo data.csv (modo texto).\n9. Guardar los datos de los empleados en el archivo data.csv (modo binario).\n10. Salir\n";
+    char menu[]="1. Cargar los datos de los empleados desde el archivo data.csv (modo texto).\n2. Cargar los datos de los empleados desde el archivo data.csv (modo binario).\n3. Alta de empleado\n4. Modificar datos de empleado\n5. Baja de empleado\n6. Listar empleados\n7. Ordenar empleados\n8. Guardar los datos de los empleados en el archivo data.csv (modo texto).\n9. Guardar los datos de los empleados en el archivo data.csv (modo binario).\n10. Limpiar lista de empleados\n100. Salir\n";
     utn_getEntero(option, 3, 11, 0, menu, "Opcion incorrecta\n");
 }

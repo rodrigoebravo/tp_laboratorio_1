@@ -4,6 +4,7 @@
  * \param pArrayListEmployee LinkedList*
  * \return int
  */
+ static int buscarEmpleadoPorId(LinkedList* pArrayListEmployee, int id);
 int controller_loadFromText(char* path , LinkedList* pArrayListEmployee)
 {
     int retorno=ERROR;
@@ -81,10 +82,8 @@ int controller_editEmployee(LinkedList* pArrayListEmployee)
 {
     int retorno=ERROR;
     int idBuffer=0;
-    int idEmpleado=0;
     int option=0;
-    int len = ll_len(pArrayListEmployee);
-    int i;
+    int posicionEnArray;
     Employee *pEmpleado;
     char nombreAux[50];
     int horasTrabajadasAux, sueldoAux, idMaximo;
@@ -93,39 +92,28 @@ int controller_editEmployee(LinkedList* pArrayListEmployee)
     if(pArrayListEmployee != NULL
     && utn_getEntero(&idBuffer, 3, idMaximo, 0, "Ingrese id que desea modificar\n", "Id incorrecto\n")==TODOOK)
     {
-        for(i=0; i<len; i++)
-        {
 
-            pEmpleado=(Employee*)ll_get(pArrayListEmployee, i);
-            Employee_getId(pEmpleado, &idEmpleado);
-            if(idEmpleado!=0 && idBuffer==idEmpleado
-            && utn_getEntero(&option, 3, 4, 0, "Ingrese campo a modificar:\n\t1- Nombre\n\t2- Cantidad de horas\n\t3- Sueldo\nIngrese: ", "Opcion incorrecta")==TODOOK
-            )
+        posicionEnArray=buscarEmpleadoPorId(pArrayListEmployee, idBuffer);
+        pEmpleado=(Employee*)ll_get(pArrayListEmployee, posicionEnArray);
+        if(utn_getEntero(&option, 3, 4, 0, "Ingrese campo a modificar:\n\t1- Nombre\n\t2- Cantidad de horas\n\t3- Sueldo\nIngrese: ", "Opcion incorrecta")==TODOOK)
+        {
+            switch(option)
             {
-                switch(option)
-                {
-                    case 1:
-                        if(utn_getCadena(nombreAux, 50, 50, 0, 3, "Ingrese nombre:\n", "Nombre erroneo\n")==TODOOK)
-                        {
-                            Employee_setNombre(pEmpleado, nombreAux);
-                        }
-                        break;
-                    case 2:
-                        if(utn_getEntero(&horasTrabajadasAux, 3, 500, 0, "Ingrese cantidad de horas:\n", "Nombre erroneo\n")==TODOOK)
-                        {
-                            Employee_setHorasTrabajadas(pEmpleado, horasTrabajadasAux);
-                        }
-                        break;
-                    case 3:
-                        if(utn_getEntero(&sueldoAux, 3, 500, 0, "Ingrese sueldo:\n", "Nombre erroneo\n")==TODOOK)
-                        {
-                            Employee_setSueldo(pEmpleado, sueldoAux);
-                        }
-                        break;
-                }
+                case 1:
+                    if(utn_getCadena(nombreAux, 50, 50, 0, 3, "Ingrese nombre:\n", "Nombre erroneo\n")==TODOOK)
+                        Employee_setNombre(pEmpleado, nombreAux);
+                    break;
+                case 2:
+                    if(utn_getEntero(&horasTrabajadasAux, 3, 500, 0, "Ingrese cantidad de horas:\n", "Nombre erroneo\n")==TODOOK)
+                        Employee_setHorasTrabajadas(pEmpleado, horasTrabajadasAux);
+                    break;
+                case 3:
+                    if(utn_getEntero(&sueldoAux, 3, 500, 0, "Ingrese sueldo:\n", "Nombre erroneo\n")==TODOOK)
+                        Employee_setSueldo(pEmpleado, sueldoAux);
+                    break;
             }
+            retorno=TODOOK;
         }
-        retorno=TODOOK;
     }
     return retorno;
 }
@@ -140,23 +128,14 @@ int controller_editEmployee(LinkedList* pArrayListEmployee)
 int controller_removeEmployee(LinkedList* pArrayListEmployee)
 {
     int retorno=ERROR;
-    int idBuffer, i, idEmpleado, idMaximo;
-    int len=ll_len(pArrayListEmployee);
-    Employee* pEmpleado;
+    int idBuffer, posicionEmpleado, idMaximo;
     idMaximo=controller_getMaximoId(pArrayListEmployee, &idMaximo);
     if(pArrayListEmployee!=NULL
     && utn_getEntero(&idBuffer, 3, idMaximo, 0, "Ingrese id que desea modificar\n", "Id incorrecto\n")==TODOOK)
     {
-        for(i=0; i<len; i++)
-        {
-            pEmpleado=(Employee*)ll_get(pArrayListEmployee, i);
-            Employee_getId(pEmpleado, &idEmpleado);
-            if(idBuffer==idEmpleado)
-            {
-                ll_remove(pArrayListEmployee, i);
-                retorno=TODOOK;
-            }
-        }
+        posicionEmpleado=buscarEmpleadoPorId(pArrayListEmployee, idBuffer);
+        ll_remove(pArrayListEmployee, posicionEmpleado);
+        retorno=TODOOK;
     }
     return retorno;
 }
@@ -183,7 +162,6 @@ int controller_ListEmployee(LinkedList* pArrayListEmployee)
             pEmpleado=(Employee*)ll_get(pArrayListEmployee, i);
             if(pEmpleado!=NULL)
                 Employee_print(pEmpleado);
-
         }
     }
     return retorno;
@@ -325,4 +303,31 @@ int controller_getMaximoId(LinkedList* pArrayListEmployee, int* idMaximo)
         retorno=TODOOK;
     }
     return retorno;
+}
+
+static int buscarEmpleadoPorId(LinkedList* pArrayListEmployee, int id)
+{
+    int i, idEmpleadoEncontrado;
+    int retorno=ERROR;
+    Employee* pElementAux;
+    if(pArrayListEmployee!=NULL && id>0)
+    {
+        for (i=0; i<(pArrayListEmployee->size); i++)
+        {
+            pElementAux = (Employee*)ll_get(pArrayListEmployee, i);
+            if(Employee_getId(pElementAux, &idEmpleadoEncontrado)==TODOOK && idEmpleadoEncontrado==id)
+            {
+                retorno = i;
+                break;
+            }
+        }
+    }
+    return retorno;
+}
+
+int controller_limpiarLista(LinkedList* pArrayListEmployee)
+{
+    int ret=ERROR;
+    ret=ll_clear(pArrayListEmployee);
+    return ret;
 }

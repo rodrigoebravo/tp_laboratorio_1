@@ -179,7 +179,6 @@ void* ll_get(LinkedList* this, int index)
         if(pNode!=NULL)
             returnAux=pNode->pElement;
     }
-
     return returnAux;
 }
 
@@ -219,8 +218,7 @@ int ll_set(LinkedList* this, int index,void* pElement)
 int ll_remove(LinkedList* this,int index)//TODO: VER Y CAMBIAR!!!!!!!!!!!
 {
     int returnAux = ERROR;
-    Node* pNodeA;
-    Node* pNodeB;
+    Node *pNodeA, *pNodeB;
     if(this!= NULL && index>=0 && index<this->size)
     {
         returnAux=TODOOK;
