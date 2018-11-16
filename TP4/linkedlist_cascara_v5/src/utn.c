@@ -19,6 +19,7 @@ int utn_getEntero(int* numeroBuffer, int intentos, int maximo, int minimo, char*
     int numeroBufferAux;
     if(numeroBuffer!=NULL && intentos>0 && maximo >= minimo && mensaje != NULL && mensajeError != NULL)
     {
+
         do
         {
             printf("%s", mensaje);

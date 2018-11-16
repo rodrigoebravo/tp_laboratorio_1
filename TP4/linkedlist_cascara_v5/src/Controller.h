@@ -19,3 +19,5 @@ int controller_compararPorCriterioNombre(void* thisUno, void* thisDos);
 int controller_validarEmployee(LinkedList* pArrayListEmployee, Employee* pEmpleado);
 int controller_getMaximoId(LinkedList* pArrayListEmployee, int* idMaximo);
 int controller_limpiarLista(LinkedList* pArrayListEmployee);
+LinkedList* controller_ResetLista(LinkedList* pArrayListEmployee, char* nombreArchivo);
+int controller_printSubLista(LinkedList* pArrayListEmployee);

@@ -21,13 +21,15 @@ Employee* Employee_newConParametros(char* id,char* nombre,char* horasTrabajadas,
     Employee* this;
     this=Employee_new();
 
-    if(isValidNombre(nombre) && isValidSueldo(sueldo) && isValidHorasTrabajadas(horasTrabajadas) &&
+    if(isValidNombre(nombre) &&
+    isValidSueldo(sueldo) &&
+    isValidHorasTrabajadas(horasTrabajadas) &&
     !Employee_setId(this,atoi(id))&&
     !Employee_setNombre(this,nombre)&&
     !Employee_setHorasTrabajadas(this,atoi(horasTrabajadas))&&
-    !Employee_setSueldo(this,atoi(sueldo)))
+    !Employee_setSueldo(this,atoi(sueldo))
+    )
         return this;
-
     Employee_delete(this);
     return NULL;
 }

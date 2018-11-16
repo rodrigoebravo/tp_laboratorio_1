@@ -1,10 +1,12 @@
 #include "Controller.h"
+
+
+static int buscarEmpleadoPorId(LinkedList* pArrayListEmployee, int id);
 /** \brief Carga los datos de los empleados desde el archivo data.csv (modo texto).
  * \param path char*
  * \param pArrayListEmployee LinkedList*
  * \return int
  */
- static int buscarEmpleadoPorId(LinkedList* pArrayListEmployee, int id);
 int controller_loadFromText(char* path , LinkedList* pArrayListEmployee)
 {
     int retorno=ERROR;
@@ -61,12 +63,19 @@ int controller_addEmployee(LinkedList* pArrayListEmployee)
        utn_getCadena(sueldoAux, 1024,1024,0,3,"Ingrese sueldo\n","Error al ingresar sueldo\n")==TODOOK)
     {
         pEmpleado=Employee_newConParametros(idAux, nombreAux, horasTrabajadasAux, sueldoAux);
-        if(pEmpleado!=NULL && controller_validarEmployee(pArrayListEmployee, pEmpleado)==TODOOK)
+        printf("-------------------------------------------PUTOO\n");
+        if(pEmpleado!=NULL)
         {
-            ll_add(pArrayListEmployee, pEmpleado);
-            retorno=TODOOK;
+            if(controller_validarEmployee(pArrayListEmployee, pEmpleado)==TODOOK)
+            {
+                ll_add(pArrayListEmployee, pEmpleado);
+                retorno=TODOOK;
+            }
+            else
+            {
+                printf("No se puede agregar este elemento a la lista");
+            }
         }
-
     }
     return retorno;
 }
@@ -90,7 +99,7 @@ int controller_editEmployee(LinkedList* pArrayListEmployee)
     controller_getMaximoId(pArrayListEmployee, &idMaximo);
     controller_ListEmployee(pArrayListEmployee);
     if(pArrayListEmployee != NULL
-    && utn_getEntero(&idBuffer, 3, idMaximo, 0, "Ingrese id que desea modificar\n", "Id incorrecto\n")==TODOOK)
+    && utn_getEntero(&idBuffer, 3, idMaximo+1, 0, "Ingrese id que desea modificar\n", "Id incorrecto\n")==TODOOK)
     {
 
         posicionEnArray=buscarEmpleadoPorId(pArrayListEmployee, idBuffer);
@@ -152,10 +161,8 @@ int controller_ListEmployee(LinkedList* pArrayListEmployee)
     int retorno=ERROR;
     int len=ll_len(pArrayListEmployee);
     Employee* pEmpleado;
-
     if(pArrayListEmployee!=NULL)
     {
-
         retorno=TODOOK;
         for(int i=0; i<len;i++)
         {
@@ -254,10 +261,11 @@ int controller_compararPorCriterioNombre(void* thisUno, void* thisDos)
     return retorno;
 }
 
-/** \brief Busca el id Maximo.
- * \param LinkedList* pArrayListEmployee
- * \param Employee* pEmpleado
- * \return int TodoOK o Error
+/** \brief Valida un empleado si puede agregarse a la lista.
+ *
+ * \param pArrayListEmployee LinkedList*
+ * \param pEmpleado Employee*
+ * \return int
  */
 int controller_validarEmployee(LinkedList* pArrayListEmployee, Employee* pEmpleado)
 {
@@ -280,6 +288,12 @@ int controller_validarEmployee(LinkedList* pArrayListEmployee, Employee* pEmplea
 
     return retorno;
 }
+
+/** \brief Busca el id Maximo.
+ * \param LinkedList* pArrayListEmployee
+ * \param Employee* pEmpleado
+ * \return int TodoOK o Error
+ */
 
 int controller_getMaximoId(LinkedList* pArrayListEmployee, int* idMaximo)
 {
@@ -305,6 +319,11 @@ int controller_getMaximoId(LinkedList* pArrayListEmployee, int* idMaximo)
     return retorno;
 }
 
+/**\brief Busca la posición del id pasado por parametro.
+ * \param pArrayListEmployee LinkedList*
+ * \param id int
+ * \return int ERROR -1 o POSICION
+ */
 static int buscarEmpleadoPorId(LinkedList* pArrayListEmployee, int id)
 {
     int i, idEmpleadoEncontrado;
@@ -325,9 +344,60 @@ static int buscarEmpleadoPorId(LinkedList* pArrayListEmployee, int id)
     return retorno;
 }
 
+/** \brief Elimina todos los datos de la lista.
+ *
+ * \param pArrayListEmployee LinkedList*
+ * \param pEmpleado Employee*
+ * \return int
+ */
 int controller_limpiarLista(LinkedList* pArrayListEmployee)
 {
     int ret=ERROR;
     ret=ll_clear(pArrayListEmployee);
     return ret;
 }
+
+/** \brief Elimina la lista y vuelve a crear una lista con los empleados del archivo.
+ *
+ * \param pArrayListEmployee LinkedList*
+ * \param nombreArchivo char*
+ * \return int
+ */
+LinkedList* controller_ResetLista(LinkedList* pArrayListEmployee, char* nombreArchivo)
+{
+    LinkedList* listaEmpleados=ll_newLinkedList();
+
+    if(!ll_isEmpty(pArrayListEmployee))
+    {
+        ll_deleteLinkedList(pArrayListEmployee);
+
+        controller_loadFromText(nombreArchivo, listaEmpleados);
+    }
+    return listaEmpleados;
+}
+
+/** \brief Crea una nueva lista a mostrar, desde y hasta la posicion que se pide al usuario.
+ *
+ * \param pArrayListEmployee LinkedList*
+ * \return int
+ */
+int controller_printSubLista(LinkedList* pArrayListEmployee)
+{
+    int posicionA, posicionB, ret;
+    ret=ERROR;
+    LinkedList* listaAux;
+    if(pArrayListEmployee!=NULL &&
+        utn_getEntero(&posicionA, 3, ll_len(pArrayListEmployee)+1, -1, "Ingrese posicion inicial a mostrar", "Posición en lista de empleados incorrecta")==TODOOK &&
+        utn_getEntero(&posicionB, 3, ll_len(pArrayListEmployee)+1,-1,"Ingrese posicion final a mostrar", "Posición en lista de empleados incorrecta")==TODOOK &&
+        posicionA<=posicionB
+        )
+        {
+            listaAux=ll_subList(pArrayListEmployee, posicionA, posicionB);
+            if(listaAux!=NULL)
+            {
+                ret=controller_ListEmployee(listaAux);
+            }
+        }
+    return ret;
+}
+
